@@ -10,7 +10,7 @@ This project defines a relational **MySQL database schema** for a scalable e-com
 
 ---
 
-## 🧱 Tables Overview
+## Tables Overview
 
 | Table Name         | Description |
 |--------------------|-------------|
