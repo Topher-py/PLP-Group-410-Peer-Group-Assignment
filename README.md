@@ -5,7 +5,7 @@ This project defines a relational **MySQL database schema** for a scalable e-com
 
 ## 📁 Project Structure
 
-- `ecommerce.sql` – SQL script to create all tables in the correct order
+- `ecommerce.sql..sql` – SQL script to create all tables in the correct order
 - `ERD Diagram` – Visual representation of all tables and relationships (available as PNG)
 
 ---
