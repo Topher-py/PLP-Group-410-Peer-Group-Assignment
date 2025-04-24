@@ -1,7 +1,22 @@
 -- Table: attribute_type
+CREATE TABLE attribute_type (
+    attr_type_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    dataType VARCHAR(100) NOT NULL
+);
 
 
 -- Table: attribute_category
+INSERT INTO attribute_category (attr_cat_id, name) VALUES 
+(1, 'Material'),
+(2, 'Pattern'),
+(3, 'Style'),
+(4, 'Sleeve Length'),
+(5, 'Neckline'),
+(6, 'Fit'),
+(7, 'Season'),
+(8, 'Fabric Weight'),
+(9, 'Occasion');
 
 
 -- Table: product_attribute
