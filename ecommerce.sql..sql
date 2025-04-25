@@ -36,7 +36,12 @@ CREATE TABLE size_category (
 
 
 -- Table: brand
-
+CREATE TABLE brand (
+    brand_id INT AUTO_INCREMENT PRIMARY KEY,
+    brand_name VARCHAR(255) NOT NULL,
+    brand_description TEXT,
+    website_url VARCHAR(255)
+);
 
 -- Table: product_category
 CREATE TABLE product_category (
@@ -68,6 +73,18 @@ CREATE TABLE product_variation (
 );
 
 -- Table: product_item
-
+CREATE TABLE product_item (
+    product_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    sku VARCHAR(100) UNIQUE NOT NULL,
+    price DECIMAL(10, 2),
+    color_id INT,
+    size_option_id INT,
+    stock_quantity INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (color_id) REFERENCES color(color_id) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (size_option_id) REFERENCES size_option(size_option_id) ON UPDATE CASCADE ON DELETE SET NULL
+);
 
 -- Table: product_image
