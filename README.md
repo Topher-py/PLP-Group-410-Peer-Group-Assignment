@@ -1,29 +1,77 @@
 # PLP-Group-410-Peer-Group-Assignment
 # 🛒 E-Commerce Database Schema
+Product Catalog Database Schema
+This schema represents the structure of a product catalog for an e-commerce platform. It includes tables for products, attributes, variations, and related data such as brands, categories, and size options.
 
-This project defines a relational **MySQL database schema** for a scalable e-commerce system. It supports rich product variations, categorization, branding, and flexible attributes like sizes, colors, and custom specifications.
+Tables:
+attribute_type
+Stores the types of product attributes (e.g., material, color).
 
-## 📁 Project Structure
+Columns: attr_type_id, name, dataType.
 
-- `ecommerce.sql..sql` – SQL script to create all tables in the correct order
-- `ERD Diagram` – Visual representation of all tables and relationships (available as PNG)
+attribute_category
+Defines categories for product attributes (e.g., Material, Pattern).
 
----
+Columns: attr_cat_id, name.
 
-## Tables Overview
+brand
+Stores brand information.
 
-| Table Name         | Description |
-|--------------------|-------------|
-| `attribute_type`   | Defines the type of attribute (text, number, boolean) |
-| `attribute_category` | Groups attributes into categories (e.g., physical, technical) |
-| `product_attribute` | Stores custom attributes for products |
-| `size_category`    | Groups sizing systems (e.g., clothing sizes, shoe sizes) |
-| `size_option`      | Lists specific sizes like S, M, L, or numeric values |
-| `color`            | Manages available product color options |
-| `brand`            | Stores information about product brands |
-| `product_category` | Classifies products into high-level categories |
-| `product`          | Represents core products (name, brand, base price) |
-| `product_variation` | Links a product with specific size and color variations |
-| `product_item`     | Specific purchasable items (SKU, price, stock) |
-| `product_image`    | Stores image URLs associated with product items |
+Columns: brand_id, brand_name, brand_description, website_url.
 
+product_category
+Stores product categories.
+
+Columns: product_category_id, category_name.
+
+product
+Stores product details.
+
+Columns: product_id, product_name, product_description, brand_id, product_category_id, price.
+
+product_attribute
+Links products with attributes.
+
+Columns: attribute_id, product_id, attr_cat_id, attr_type_id, value.
+
+size_category
+Defines categories for size options (e.g., Small, Medium, Large).
+
+Columns: size_category_id, category_name, description.
+
+size_option
+Stores size options for products.
+
+Columns: size_option_id, size_label, size_category_id, created_at, updated_at.
+
+color
+Stores color options for products.
+
+Columns: color_id, color_name.
+
+product_item
+Stores individual product items with specific attributes.
+
+Columns: product_item_id, product_id, sku, price, color_id, size_option_id, stock_quantity.
+
+product_variation
+Stores variations of products (e.g., different color/size combinations).
+
+Columns: variation_id, item_id, size_option_id, color_id.
+
+product_image
+Stores images for products and items.
+
+Columns: product_image_id, image_url, product_id, product_item_id.
+
+Usage
+This schema can be used for managing and displaying products, their variations (like sizes and colors), and their associated metadata. It supports flexible categorization and product attribute configurations.
+
+Example Use Cases
+Managing Products: Storing product details such as name, description, price, and category.
+
+Product Attributes: Associating attributes like size, color, material with products.
+
+Tracking Inventory: Managing stock levels through the product_item table.
+
+Product Variations: Supporting multiple variations of the same product (different sizes or colors).
