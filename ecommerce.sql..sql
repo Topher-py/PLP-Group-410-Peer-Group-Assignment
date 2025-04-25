@@ -92,3 +92,11 @@ CREATE TABLE product_item (
 );
 
 -- Table: product_image
+CREATE TABLE product_image (
+    product_image_id INT AUTO_INCREMENT PRIMARY KEY,
+    image_url VARCHAR(500) NOT NULL,
+    product_id INT,
+    product_item_id INT,
+    FOREIGN KEY (product_id) REFERENCES product(product_id),
+    FOREIGN KEY (product_item_id) REFERENCES product_item(product_item_id)
+);
