@@ -23,7 +23,11 @@ INSERT INTO attribute_category (attr_cat_id, name) VALUES
 
 
 -- Table: size_category
-
+CREATE TABLE size_category (
+    size_category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(50) NOT NULL,
+    description TEXT
+);
 
 -- Table: size_option
 
@@ -53,7 +57,15 @@ CREATE TABLE product (
         );
 
 -- Table: product_variation
-
+CREATE TABLE product_variation (
+    variation_id INT AUTO_INCREMENT PRIMARY KEY,
+    item_id INT NOT NULL,
+    size_option_id INT,
+    color_id INT,
+    FOREIGN KEY (item_id) REFERENCES product_item(item_id) ON DELETE CASCADE,
+    FOREIGN KEY (size_option_id) REFERENCES size_option(size_option_id) ON DELETE SET NULL,
+    FOREIGN KEY (color_id) REFERENCES color(color_id) ON DELETE SET NULL
+);
 
 -- Table: product_item
 
