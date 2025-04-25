@@ -20,7 +20,9 @@ INSERT INTO attribute_category (attr_cat_id, name) VALUES
 
 
 -- Table: product_attribute
-
+CREATE TABLE product_attribute
+    PRIMARY KEY INT
+    PRIMARY KEY PRIMARY NOT NULL
 
 -- Table: size_category
 CREATE TABLE size_category (
@@ -30,7 +32,19 @@ CREATE TABLE size_category (
 );
 
 -- Table: size_option
+CREATE TABLE size_option (
+    size_option_id INT AUTO_INCREMENT PRIMARY KEY,
+    size_label VARCHAR(20) NOT NULL,          -- e.g., "S", "M", "L", "XL", "42"
+    size_category_id INT NOT NULL,            -- foreign key to size_category
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
+    CONSTRAINT fk_size_category
+        FOREIGN KEY (size_category_id)
+        REFERENCES size_category(size_category_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
 
 -- Table: Color
 CREATE TABLE color (
