@@ -16,67 +16,56 @@ Columns: attr_type_id, name, dataType.
 **attribute_category**
 
 Defines categories for product attributes (e.g., Material, Pattern).
-
 Columns: attr_cat_id, name.
 
 **brand**
 
 Stores brand information.
-
 Columns: brand_id, brand_name, brand_description, website_url.
 
 **product_category**
 
 Stores product categories.
-
 Columns: product_category_id, category_name.
 
 **product**
 
 Stores product details.
-
 Columns: product_id, product_name, product_description, brand_id, product_category_id, price.
 
 **product_attribute**
 
 Links products with attributes.
-
 Columns: attribute_id, product_id, attr_cat_id, attr_type_id, value.
 
 **size_category**
 
 Defines categories for size options (e.g., Small, Medium, Large).
-
 Columns: size_category_id, category_name, description.
 
 **size_option**
 
 Stores size options for products.
-
 Columns: size_option_id, size_label, size_category_id, created_at, updated_at.
 
 **color**
 
 Stores color options for products.
-
 Columns: color_id, color_name.
 
 **product_item**
 
 Stores individual product items with specific attributes.
-
 Columns: product_item_id, product_id, sku, price, color_id, size_option_id, stock_quantity.
 
 **product_variation**
 
 Stores variations of products (e.g., different color/size combinations).
-
 Columns: variation_id, item_id, size_option_id, color_id.
 
 **product_image**
 
 Stores images for products and items.
-
 Columns: product_image_id, image_url, product_id, product_item_id.
 
 **Usage**
